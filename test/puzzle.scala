@@ -33,7 +33,7 @@ class Test extends FlatSpec with Matchers {
   "candidates()" should "be [[0,0,0,0], [0,0,0,1], [0,0,0,2], ..., [9,9,9,9]]" in {
     val candidates2 = candidates(1)
     println("candidates2 = " + candidates2)
-    candidates2.length should be (4)
+    candidates2.length should be (16)
 
     val candidates10 = candidates(9)
     candidates10 should contain     (List(0, 0, 0, 0))
