@@ -17,7 +17,17 @@ class Test extends FlatSpec with Matchers {
     theCandidates should not contain (List(0, 0, 0, 10))
   }
 
-  "constraint(a, b, c, d)" should "reflect the specification" in {
+  "counts([...])" should "count correctly" in {
+    counts(Nil) should be (List(0, 0, 0, 0))
+    counts(List(1)) should be (List(1, 0, 0, 0))
+    counts(List(1, 1, 1, 1, 1)) should be (List(5, 0, 0, 0))
+    counts(List(2, 2, 2, 2, 2)) should be (List(0, 5, 0, 0))
+    counts(List(3, 3, 3, 3, 3)) should be (List(0, 0, 5, 0))
+    counts(List(0, 0, 0, 0, 0)) should be (List(0, 0, 0, 5))
+    counts(List(0, 4, 5, 6, 7, 8, 9)) should be (List(0, 0, 0, 7))
+  }
+
+  "constraint(ones, twos, threes)" should "reflect the specification" in {
     constraint(List(0, 0, 0, 0)) should be (false)
     constraint(List(1, 0, 0, 0)) should be (false)
     constraint(List(0, 1, 0, 0)) should be (false)
