@@ -16,7 +16,17 @@ object Main {
   }
 
   def counts(candidate: List[Int]): List[Int] = {
-    Nil
+    def c(n: Int)(l: List[Int]): Int = {
+      l match {
+        case Nil => 0 
+        case x :: l => (if (x == n) 1 else 0) + c(n)(l)
+      }
+    }
+    val ones = c(1)(candidate)
+    val twos = c(2)(candidate)
+    val threes = c(3)(candidate)
+    val others = 4 - ones - twos - threes
+    List(ones, twos, threes, others)
   }
 
   /**
