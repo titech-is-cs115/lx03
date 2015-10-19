@@ -8,11 +8,33 @@ import Main._
 
 class Test extends FlatSpec with Matchers {
 
+  "fromTo()" should "give number sequence in increasing order" in {
+    fromTo(0, 0) should be  (List(0))
+    fromTo(0, 3) should be  (List(0, 1, 2, 3))
+    fromTo(0, -1) should be (Nil)
+  }
+
+  "prod()" should "compute Cartesian product" in {
+    prod(List(0), Nil) should be (List(List(0)))
+
+    val prod1 = prod(List(0, 1), Nil)
+    prod1 should contain (List(0))
+    prod1 should contain (List(1))
+
+    prod(Nil, List(List(0), List(1), List(2), List(3))) should be (Nil)
+
+    val prod3 = prod(List(0, 1), List(List(2), List(3)))
+    prod3 should contain (List(0, 2))
+    prod3 should contain (List(0, 3))
+    prod3 should contain (List(1, 2))
+    prod3 should contain (List(1, 3))
+  }
+
   val theCandidates = candidates()
 
   "candidates()" should "be [[0,0,0,0], [0,0,0,1], [0,0,0,2], ..., [9,9,9,9]]" in {
-    theCandidates should contain (List(0, 0, 0, 0))
-    theCandidates should contain (List(9, 9, 9, 9))
+    theCandidates should contain     (List(0, 0, 0, 0))
+    theCandidates should contain     (List(9, 9, 9, 9))
     theCandidates should not contain (List(0, 0, 0, -1))
     theCandidates should not contain (List(0, 0, 0, 10))
   }

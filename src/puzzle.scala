@@ -11,8 +11,20 @@ object Main {
    * constraintがテストし難いので、制約の書き方を変えてみる。升目に含まれる数に対する制約ではなく、紙面のones = 1の数、twos = 2の数、threes = 3の数、others = それら以外の数についての情報が与えられた制約とすればテストが書き易くなるかな？
    */
 
-  def candidates(): List[List[Int]] = {
+  // candidates = [0,9] x ([0,9] x ([0,9] x [0,9])) だから
+  // 二つのリストからデカルト積を与える x 演算子と[0,9]の範囲を与えるfromToを定義することにする。
+
+  def fromTo(n: Int, m: Int): List[Int] = {
     Nil
+  }
+
+  def prod(l1: List[Int], l2: List[List[Int]]): List[List[Int]] = {
+    Nil
+  }
+
+  def candidates(): List[List[Int]] = {
+    val nums = fromTo(0, 9)
+    prod(nums, (prod(nums, (prod(nums, prod(nums, Nil))))))
   }
 
   def counts(candidate: List[Int]): List[Int] = {
