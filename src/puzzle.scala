@@ -15,7 +15,7 @@ object Main {
   // 二つのリストからデカルト積を与える x 演算子と[0,9]の範囲を与えるfromToを定義することにする。
 
   def fromTo(n: Int, m: Int): List[Int] = {
-    Nil
+    if (n > m) Nil else n :: fromTo(n+1, m)
   }
 
   def prod(l1: List[Int], l2: List[List[Int]]): List[List[Int]] = {
