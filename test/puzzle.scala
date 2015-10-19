@@ -37,6 +37,8 @@ class Test extends FlatSpec with Matchers {
     theCandidates should contain     (List(9, 9, 9, 9))
     theCandidates should not contain (List(0, 0, 0, -1))
     theCandidates should not contain (List(0, 0, 0, 10))
+
+    theCandidates.length should be (10 * 10 * 10 * 10)
   }
 
   "counts([...])" should "count correctly" in {
