@@ -1,0 +1,24 @@
+/project/
+
+# Typical garbage files
+*~
+.*~
+*.bak
+*.tmp
+* conflicted copy *
+
+# File tags
+tags
+
+# Mac OS X specific files
+.DS_Store
+.Trash*
+.Spotlight-*
+.hidden
+.hotfiles.btree
+.vol
+.FBCIndex
+.FBCLockFolder
+.CFUserTextEncoding
+.localized
+Icon
