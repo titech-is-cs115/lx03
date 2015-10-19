@@ -18,8 +18,17 @@ object Main {
     if (n > m) Nil else n :: fromTo(n+1, m)
   }
 
-  def prod(l1: List[Int], l2: List[List[Int]]): List[List[Int]] = {
-    Nil
+  def prod(l1: List[Int], ll2: List[List[Int]]): List[List[Int]] = {
+    def prod1(n: Int, ll: List[List[Int]]): List[List[Int]] = {
+      ll match {
+        case Nil => List(List(n))
+        case l :: ll => (n :: l) :: prod1(n, ll)
+      }
+    }
+    l1 match {
+      case Nil => Nil
+      case x :: l1 => prod1(x, ll2) ++ prod(l1, ll2)
+    }
   }
 
   def candidates(): List[List[Int]] = {
