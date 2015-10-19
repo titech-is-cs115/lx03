@@ -27,16 +27,7 @@ class Test extends FlatSpec with Matchers {
     counts(List(0, 4, 5, 6, 7, 8, 9)) should be (List(0, 0, 0, 7))
   }
 
-  "constraint(ones, twos, threes)" should "reflect the specification" in {
-    constraint(List(0, 0, 0, 0)) should be (false)
-    constraint(List(1, 0, 0, 0)) should be (false)
-    constraint(List(0, 1, 0, 0)) should be (false)
-    constraint(List(0, 0, 1, 0)) should be (false)
-    constraint(List(0, 0, 0, 1)) should be (false)
-    // と、結果が false になるテストは書いてみた
-    // でも、結果が true になるテストはどうする？
-    // もし書いたとしたら、それって、すでに結果が求まっているってこと？
-  }
+  // constraintの実装は仕様どおりなので、テストなしで信用することにする
 
   def every(p: List[Int] => Boolean, list: List[List[Int]]): Boolean = {
     list match {

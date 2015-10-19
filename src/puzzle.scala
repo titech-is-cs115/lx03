@@ -22,19 +22,21 @@ object Main {
         case x :: l => (if (x == n) 1 else 0) + c(n)(l)
       }
     }
-    val ones = c(1)(candidate)
-    val twos = c(2)(candidate)
-    val threes = c(3)(candidate)
-    val others = 4 - ones - twos - threes
-    List(ones, twos, threes, others)
+    val c1 = c(1)(candidate)
+    val c2 = c(2)(candidate)
+    val c3 = c(3)(candidate)
+    val c_others = candidate.length - (c1 + c2 + c3)
+    List(c1, c2, c3, c_others)
   }
 
   /**
    * [a, b, c, d], [ones, twos, threes, others] => true/false
    */
   def constraint(candidate: List[Int]): Boolean = {
-    val c = counts(candidate)
-    true
+    (candidate, counts(candidate)) match {
+      case (List(a, b, c, d), List(c1, c2, c3, c_others)) =>
+        a == c1 && b == c2 && c == c3 && d == c_others
+    }
   }
 
   def check(): List[List[Int]] = {
