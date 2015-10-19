@@ -31,8 +31,8 @@ object Main {
     }
   }
 
-  def candidates(): List[List[Int]] = {
-    val nums = fromTo(0, 9)
+  def candidates(n: Int): List[List[Int]] = {
+    val nums = fromTo(0, n)
     prod(nums, (prod(nums, (prod(nums, prod(nums, Nil))))))
   }
 

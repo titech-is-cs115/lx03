@@ -30,15 +30,18 @@ class Test extends FlatSpec with Matchers {
     prod3 should contain (List(1, 3))
   }
 
-  val theCandidates = candidates()
-
   "candidates()" should "be [[0,0,0,0], [0,0,0,1], [0,0,0,2], ..., [9,9,9,9]]" in {
-    theCandidates should contain     (List(0, 0, 0, 0))
-    theCandidates should contain     (List(9, 9, 9, 9))
-    theCandidates should not contain (List(0, 0, 0, -1))
-    theCandidates should not contain (List(0, 0, 0, 10))
+    val candidates2 = candidates(1)
+    println("candidates2 = " + candidates2)
+    candidates2.length should be (4)
 
-    theCandidates.length should be (10 * 10 * 10 * 10)
+    val candidates10 = candidates(9)
+    candidates10 should contain     (List(0, 0, 0, 0))
+    candidates10 should contain     (List(9, 9, 9, 9))
+    candidates10 should not contain (List(0, 0, 0, -1))
+    candidates10 should not contain (List(0, 0, 0, 10))
+
+    candidates10.length should be (10 * 10 * 10 * 10)
   }
 
   "counts([...])" should "count correctly" in {
