@@ -1,4 +1,4 @@
-// パス: lx02/test/puzzle.scala
+// パス: lx03/test/puzzle.scala
 // エンコーディング: UTF8
 
 package puzzle
