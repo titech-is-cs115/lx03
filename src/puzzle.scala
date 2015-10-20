@@ -73,7 +73,15 @@ object Main {
   }
 
   def check(): List[List[Int]] = {
-    Nil
+    def loop(candidates: List[List[Int]]): List[List[Int]] = {
+      candidates match {
+        case Nil => Nil
+        case candidate :: candidates =>
+          if (constraint(candidate)) candidate :: loop(candidates)
+          else loop(candidates)
+      }
+    }
+    loop(candidates(9))
   }
 
   def puzzle(): List[List[Int]] = {
