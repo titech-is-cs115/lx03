@@ -68,7 +68,7 @@ object Main {
   def constraint(candidate: List[Int]): Boolean = {
     (candidate, counts(candidate)) match {
       case (List(a, b, c, d), List(c1, c2, c3, c_others)) =>
-        a == c1 && b == c2 && c == c3 && d == c_others
+        a == 2 + c1 && b == 1 + c2 && c == 2 + c3 && d == c_others
     }
   }
 
